@@ -1,0 +1,34 @@
+body {
+background: linear-gradient(0deg, #FFDEE9 0%, #B5FFFC 100%);
+height: 100%;
+}
+
+#fig-home {
+    width: 90%;
+    max-width: 435px;
+    text-align: center;
+    border-radius: 60% 40% 40% 20% / 70% 50% 30% 25%;
+}
+
+figure {
+    text-align: center;
+}
+
+footer {
+    text-align: center;
+    height: 15vh;
+}
+
+i {
+    font-size: 1.2rem;
+    color: #343a40;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+#accordion-button:hover {
+    background-color: #e7f1ff;
+}
+

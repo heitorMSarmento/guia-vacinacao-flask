@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="x-apple-disable-message-reformatting">
+    <title></title>
+    <!--[if mso]>
+    <noscript>
+        <xml>
+            <o:OfficeDocumentSettings>
+                <o:PixelsPerInch>96</o:PixelsPerInch>
+            </o:OfficeDocumentSettings>
+        </xml>
+    </noscript>
+    <![endif]-->
+    <style>
+        table,
+        td,
+        div,
+        h1,
+        p {
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+
+    <body style="margin:0;padding:0;">
+        <table role="presentation"
+            style="width:100%;border-collapse:collapse;border:0;border-spacing:0;background:#ffffff;">
+            <tr>
+                <td align="center" style="padding:0;">
+                    <table role="presentation"
+                        style="width:602px;border-collapse:collapse;border:1px solid #cccccc;border-spacing:0;text-align:left;">
+                        <tr>
+                            <td style="padding:0;background:#f38abf;">
+                                <h1>Guia de Vacinação</h1>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding:36px 30px 42px 30px;">
+                                <table role="presentation"
+                                    style="width:100%;border-collapse:collapse;border:0;border-spacing:0;">
+                                    <tr>
+                                        <td style="padding:0;">
+                                            {% block main %}
+                                            <h3>Olá mamãe <span>{{ nomeMae }}</span>, o(a) <span>{{ nomeBebe }}</span>
+                                                está {% if
+                                                diasBebe > 1 %}com {% if
+                                                idadeBebe > 1 %}{{ idadeBebe
+                                                }} meses{% endif %}{% if idadeBebe == 1 %}{{ idadeBebe }} mes{% endif
+                                                %}{% if idadeBebe
+                                                < 1 %}{{ diasBebe }} dias{% endif %}, então você deve seguir o esquema
+                                                    vacinal a baixo:{% else %}chegando! Parabéns, veja as vacinas que
+                                                    seu bebe vai precisar:{% endif %}</h3>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding:0;">
+                                            <table role="presentation"
+                                                style="width:100%;border-collapse:collapse;border:0;border-spacing:0;">
+                                                <tr>
+                                                    <td style="width:540px;padding:0;vertical-align:top;">
+
+                                                        <div style="padding: 10px;">
+                                                            <h3>Bebês rescém-nascidos</h3>
+                                                            {% for item in lista_vacinas %}
+                                                            <div>
+                                                                <h4>{{ item.nome }}</h4>
+                                                                <ul>
+                                                                    <li><b>Benefício:</b> {{ item.beneficio }}</li>
+                                                                    <li><b>Quando tomar:</b> {{ item.periodo_aplicacao
+                                                                        }}</li>
+                                                                </ul>
+                                                            </div>
+                                                            {% endfor %}
+                                                        </div>
+                                                        <div style="padding: 10px;">
+                                                            <h3>Bebês de 2 meses</h3>
+                                                            {% for item in lista_vacinas2 %}
+                                                            <div>
+                                                                <h4>{{ item.nome }}</h4>
+                                                                <ul>
+                                                                    <li><b>Benefício:</b> {{ item.beneficio }}</li>
+                                                                    <li><b>Quando tomar:</b> {{ item.periodo_aplicacao
+                                                                        }}</li>
+                                                                </ul>
+                                                            </div>
+                                                            {% endfor %}
+                                                        </div>
+                                                        <div style="padding: 10px;">
+                                                            <h3>Bebês de 3 meses</h3>
+                                                            {% for item in lista_vacinas3 %}
+                                                            <div>
+                                                                <h4>{{ item.nome }}</h4>
+                                                                <ul>
+                                                                    <li><b>Benefício:</b> {{ item.beneficio }}</li>
+                                                                    <li><b>Quando tomar:</b> {{ item.periodo_aplicacao
+                                                                        }}</li>
+                                                                </ul>
+                                                            </div>
+                                                            {% endfor %}
+                                                        </div>
+                                                        <div style="padding: 10px;">
+                                                            <h3>Bebês de 4 meses</h3>
+                                                            {% for item in lista_vacinas4 %}
+                                                            <div>
+                                                                <h4>{{ item.nome }}</h4>
+                                                                <ul>
+                                                                    <li><b>Benefício:</b> {{ item.beneficio }}</li>
+                                                                    <li><b>Quando tomar:</b> {{ item.periodo_aplicacao
+                                                                        }}</li>
+                                                                </ul>
+                                                            </div>
+                                                            {% endfor %}
+                                                        </div>
+                                                        <div style="padding: 10px;">
+                                                            <h3>Bebês de 5 meses</h3>
+                                                            {% for item in lista_vacinas5 %}
+                                                            <div>
+                                                                <h4>{{ item.nome }}</h4>
+                                                                <ul>
+                                                                    <li><b>Benefício:</b> {{ item.beneficio }}</li>
+                                                                    <li><b>Quando tomar:</b> {{ item.periodo_aplicacao
+                                                                        }}</li>
+                                                                </ul>
+                                                            </div>
+                                                            {% endfor %}
+                                                        </div>
+                                                        <div style="padding: 10px;">
+                                                            <h3>Bebês de 6 meses</h3>
+                                                            {% for item in lista_vacinas6 %}
+                                                            <div>
+                                                                <h4>{{ item.nome }}</h4>
+                                                                <ul>
+                                                                    <li><b>Benefício:</b> {{ item.beneficio }}</li>
+                                                                    <li><b>Quando tomar:</b> {{ item.periodo_aplicacao
+                                                                        }}</li>
+                                                                </ul>
+                                                            </div>
+                                                            {% endfor %}
+                                                        </div>
+                                                        <div style="padding: 10px;">
+                                                            <h3>Bebês de 7 meses</h3>
+                                                            {% for item in lista_vacinas7 %}
+                                                            <div>
+                                                                <h4>{{ item.nome }}</h4>
+                                                                <ul>
+                                                                    <li><b>Benefício:</b> {{ item.beneficio }}</li>
+                                                                    <li><b>Quando tomar:</b> {{ item.periodo_aplicacao
+                                                                        }}</li>
+                                                                </ul>
+                                                            </div>
+                                                            {% endfor %}
+                                                        </div>
+                                                        <div style="padding: 10px;">
+                                                            <h3>Bebês de 9 meses</h3>
+                                                            {% for item in lista_vacinas8 %}
+                                                            <div>
+                                                                <h4>{{ item.nome }}</h4>
+                                                                <ul>
+                                                                    <li><b>Benefício:</b> {{ item.beneficio }}</li>
+                                                                    <li><b>Quando tomar:</b> {{ item.periodo_aplicacao
+                                                                        }}</li>
+                                                                </ul>
+                                                            </div>
+                                                            {% endfor %}
+                                                        </div>
+                                                        <div style="padding: 10px;">
+                                                            <h3>Bebês de 12 meses</h3>
+                                                            {% for item in lista_vacinas9 %}
+                                                            <div>
+                                                                <h4>{{ item.nome }}</h4>
+                                                                <ul>
+                                                                    <li><b>Benefício:</b> {{ item.beneficio }}</li>
+                                                                    <li><b>Quando tomar:</b> {{ item.periodo_aplicacao
+                                                                        }}</li>
+                                                                </ul>
+                                                            </div>
+                                                            {% endfor %}
+                                                        </div>
+                                                        <div style="padding: 10px;">
+                                                            <h3>Bebês de 15 meses</h3>
+                                                            {% for item in lista_vacinas10 %}
+                                                            <div>
+                                                                <h4>{{ item.nome }}</h4>
+                                                                <ul>
+                                                                    <li><b>Benefício:</b> {{ item.beneficio }}</li>
+                                                                    <li><b>Quando tomar:</b> {{
+                                                                        item.periodo_aplicacao }}</li>
+                                                                </ul>
+                                                            </div>
+                                                            {% endfor %}
+                                                        </div>
+                                                        {% endblock %}
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding:0;background:#65befa;">
+                                <table role="presentation"
+                                    style="width:100%;border-collapse:collapse;border:0;border-spacing:0;">
+                                    <tr>
+                                        <td style="padding:0 0 0 16px;width:50%;" align="left">
+                                            <p>© 2022 HeitorMSarmento</p>
+                                        </td>
+                                        <td style="padding:0 16px 0 0;width:50%;" align="right">
+                                            <table role="presentation"
+                                                style="border-collapse:collapse;border:0;border-spacing:0;">
+                                                <tr>
+                                                    <td style="padding:0 0 0 10px;width:38px;">
+                                                        <a
+                                                            href="https://www.linkedin.com/in/heitor-de-mac%C3%AAdo-sarmento-747773236/"><img
+                                                                src="https://cdn-icons-png.flaticon.com/512/61/61109.png"
+                                                                alt="Linkedin" width="38"
+                                                                style="height:auto;display:block;border:0;" /></a>
+                                                    </td>
+                                                    <td style="padding:0 0 0 10px;width:38px;">
+                                                        <a href="https://github.com/heitorMSarmento"><img
+                                                                src="https://cdn-icons-png.flaticon.com/512/25/25231.png"
+                                                                alt="Github" width="38"
+                                                                style="height:auto;display:block;border:0;" /></a>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </body>
+
+</body>
+
+</html>

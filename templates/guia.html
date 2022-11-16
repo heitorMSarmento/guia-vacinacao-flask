@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <title>Guia de Vacinação</title>
+</head>
+
+<body>
+    {% block main %}
+    <main class="container mx-auto mb-5">
+        <h5 class="display-6 col-12 mb-3 mt-5">Olá mamãe <span class="uppercase">{{ nomeMae }}</span>, o(a) <span
+                class="uppercase">{{ nomeBebe }}</span> está {% if diasBebe > 1 %}com {% if idadeBebe > 1 %}{{ idadeBebe
+            }} meses{% endif %}{% if idadeBebe == 1 %}{{ idadeBebe }} mes{% endif %}{% if idadeBebe < 1 %}{{ diasBebe }}
+                dias{% endif %}, então você deve seguir o esquema vacinal a baixo:{% else %}chegando! Parabéns, veja as
+                vacinas que seu bebe vai precisar:{% endif %}</h5>
+                <h5 class="lead fst-italic px-4 mb-2">*Para cada vacina aplicada, marque como imunizado na respectiva vacina.</h5>
+                <div class="accordion accordion-flush mt-5" id="accordionFlushExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingOne">
+                            <button class="accordion-button collapsed h4 mb-0" id="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapseOne" aria-expanded="false"
+                                aria-controls="flush-collapseOne">
+                                Bebês rescém-nascidos
+                            </button>
+                        </h2>
+                        <div id="flush-collapseOne" class="accordion-collapse collapse"
+                            aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">
+                                <div class="container-fluid px-1 py-3">
+                                    <div class="row gap-4 mx-auto d-flex justify-content-around">
+
+                                        {% for item in lista_vacinas %}
+                                        <div class="card px-0 col-12 col-md-6 col-xl-3 shadow-sm" style="width: 20rem;">
+                                            <div class="card-header" style="background: #f57ea6;">
+                                                <b>{{ item.nome }}</b><a href="#"
+                                                    class="btn btn-outline-warning btn-sm float-end"
+                                                    data-bs-toggle="button" autocomplete="off">Imunizado</a>
+                                            </div>
+                                            <ul class="list-group list-group-flush">
+                                                <li class="list-group-item"><b>Origem:</b> {{ item.origem }}</li>
+                                                <li class="list-group-item"><b>Benefício:</b> {{ item.beneficio }}</li>
+                                                <li class="list-group-item"><b>Quando tomar:</b> {{
+                                                    item.periodo_aplicacao }}</li>
+                                            </ul>
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingTwo">
+                            <button class="accordion-button collapsed h4 mb-0" id="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapseTwo" aria-expanded="false"
+                                aria-controls="flush-collapseTwo">
+                                Bebês de 2 meses
+                            </button>
+                        </h2>
+                        <div id="flush-collapseTwo" class="accordion-collapse collapse"
+                            aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">
+                                <div class="container-fluid px-1 py-3">
+                                    <div class="row gap-4 mx-auto d-flex justify-content-around">
+                                        {% for item in lista_vacinas2 %}
+                                        <div class="card px-0 col-12 col-md-6 col-xl-3 shadow-sm" style="width: 20rem;">
+                                            <div class="card-header" style="background: #f57ea6;">
+                                                <b>{{ item.nome }}</b><a href="#"
+                                                    class="btn btn-outline-warning btn-sm float-end"
+                                                    data-bs-toggle="button" autocomplete="off">Imunizado</a>
+                                            </div>
+                                            <ul class="list-group list-group-flush">
+                                                <li class="list-group-item"><b>Origem:</b> {{ item.origem }}
+                                                </li>
+                                                <li class="list-group-item"><b>Benefício:</b> {{ item.beneficio }}
+                                                </li>
+                                                <li class="list-group-item"><b>Quando tomar:</b> {{
+                                                    item.periodo_aplicacao }}</li>
+                                            </ul>
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingThree">
+                            <button class="accordion-button collapsed h4 mb-0" id="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapseThree" aria-expanded="false"
+                                aria-controls="flush-collapseThree">
+                                Bebês de 3 meses
+                            </button>
+                        </h2>
+                        <div id="flush-collapseThree" class="accordion-collapse collapse"
+                            aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body" style="background-color: transparent;">
+                                <div class="container-fluid px-1 py-3">
+                                    <div class="row gap-4 mx-auto d-flex justify-content-around">
+                                        {% for item in lista_vacinas3 %}
+                                        <div class="card px-0 col-12 col-md-6 col-xl-3 shadow-sm" style="width: 20rem;">
+                                            <div class="card-header" style="background: #f57ea6;">
+                                                <b style="text-transform: uppercase;">{{ item.nome }}</b><a href="#"
+                                                    class="btn btn-outline-warning btn-sm float-end"
+                                                    data-bs-toggle="button" autocomplete="off">Imunizado</a>
+                                            </div>
+                                            <ul class="list-group list-group-flush">
+                                                <li class="list-group-item"><b>Origem:</b> {{ item.origem }}
+                                                </li>
+                                                <li class="list-group-item"><b>Benefício:</b> {{ item.beneficio }}
+                                                </li>
+                                                <li class="list-group-item"><b>Quando tomar:</b> {{
+                                                    item.periodo_aplicacao }}</li>
+                                            </ul>
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingFour">
+                            <button class="accordion-button collapsed h4 mb-0" id="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapseFour" aria-expanded="false"
+                                aria-controls="flush-collapseFour">
+                                Bebês de 4 meses
+                            </button>
+                        </h2>
+                        <div id="flush-collapseFour" class="accordion-collapse collapse"
+                            aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">
+                                <div class="container-fluid px-1 py-3">
+                                    <div class="row gap-4 mx-auto d-flex justify-content-around">
+                                        {% for item in lista_vacinas4 %}
+                                        <div class="card px-0 col-12 col-md-6 col-xl-3 shadow-sm" style="width: 20rem;">
+                                            <div class="card-header" style="background: #f57ea6;">
+                                                <b>{{ item.nome }}</b><a href="#"
+                                                    class="btn btn-outline-warning btn-sm float-end"
+                                                    data-bs-toggle="button" autocomplete="off">Imunizado</a>
+                                            </div>
+                                            <ul class="list-group list-group-flush">
+                                                <li class="list-group-item"><b>Origem:</b> {{ item.origem }}
+                                                </li>
+                                                <li class="list-group-item"><b>Benefício:</b> {{ item.beneficio
+                                                    }}</li>
+                                                <li class="list-group-item"><b>Quando tomar:</b> {{
+                                                    item.periodo_aplicacao }}</li>
+                                            </ul>
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingFive">
+                            <button class="accordion-button collapsed h4 mb-0" id="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapseFive" aria-expanded="false"
+                                aria-controls="flush-collapseFive">
+                                Bebês de 5 meses
+                            </button>
+                        </h2>
+                        <div id="flush-collapseFive" class="accordion-collapse collapse"
+                            aria-labelledby="flush-headingFive" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">
+                                <div class="container-fluid px-1 py-3">
+                                    <div class="row gap-4 mx-auto d-flex justify-content-around">
+                                        {% for item in lista_vacinas5 %}
+                                        <div class="card px-0 col-12 col-md-6 col-xl-3 shadow-sm" style="width: 20rem;">
+                                            <div class="card-header" style="background: #f57ea6;">
+                                                <b>{{ item.nome }}</b><a href="#"
+                                                    class="btn btn-outline-warning btn-sm float-end"
+                                                    data-bs-toggle="button" autocomplete="off">Imunizado</a>
+                                            </div>
+                                            <ul class="list-group list-group-flush">
+                                                <li class="list-group-item"><b>Origem:</b> {{
+                                                    item.origem }}
+                                                </li>
+                                                <li class="list-group-item"><b>Benefício:</b> {{
+                                                    item.beneficio }}</li>
+                                                <li class="list-group-item"><b>Quando tomar:</b> {{
+                                                    item.periodo_aplicacao }}</li>
+                                            </ul>
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingSix">
+                            <button class="accordion-button collapsed h4 mb-0" id="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapseSix" aria-expanded="false"
+                                aria-controls="flush-collapseSix">
+                                Bebês de 6 meses
+                            </button>
+                        </h2>
+                        <div id="flush-collapseSix" class="accordion-collapse collapse"
+                            aria-labelledby="flush-headingSix" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">
+                                <div class="container-fluid px-1 py-3">
+                                    <div class="row gap-4 mx-auto d-flex justify-content-around">
+                                        {% for item in lista_vacinas6 %}
+                                        <div class="card px-0 col-12 col-md-6 col-xl-3 shadow-sm" style="width: 20rem;">
+                                            <div class="card-header" style="background: #f57ea6;">
+                                                <b>{{ item.nome }}</b><a href="#"
+                                                    class="btn btn-outline-warning btn-sm float-end"
+                                                    data-bs-toggle="button" autocomplete="off">Imunizado</a>
+                                            </div>
+                                            <ul class="list-group list-group-flush">
+                                                <li class="list-group-item"><b>Origem:</b> {{
+                                                    item.origem }}
+                                                </li>
+                                                <li class="list-group-item"><b>Benefício:</b> {{
+                                                    item.beneficio }}</li>
+                                                <li class="list-group-item"><b>Quando tomar:</b>
+                                                    {{
+                                                    item.periodo_aplicacao }}</li>
+                                            </ul>
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingSeven">
+                            <button class="accordion-button collapsed h4 mb-0" id="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapseSeven" aria-expanded="false"
+                                aria-controls="flush-collapseSeven">
+                                Bebês de 7 meses
+                            </button>
+                        </h2>
+                        <div id="flush-collapseSeven" class="accordion-collapse collapse"
+                            aria-labelledby="flush-headingSeven" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">
+                                <div class="container-fluid px-1 py-3">
+                                    <div class="row gap-4 mx-auto d-flex justify-content-around">
+                                        {% for item in lista_vacinas7 %}
+                                        <div class="card px-0 col-12 col-md-6 col    -xl-3 shadow-sm"
+                                            style="width: 20rem;">
+                                            <div class="card-header" style="background: #f57ea6;">
+                                                <b>{{ item.nome }}</b><a href="#"
+                                                    class="btn btn-outline-warning btn-sm float-end"
+                                                    data-bs-toggle="button" autocomplete="off">Imunizado</a>
+                                            </div>
+                                            <ul class="list-group list-group-flush">
+                                                <li class="list-group-item">
+                                                    <b>Origem:</b> {{
+                                                    item.origem }}
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <b>Benefício:</b> {{
+                                                    item.beneficio }}
+                                                </li>
+                                                <li class="list-group-item"><b>Quando
+                                                        tomar:</b> {{
+                                                    item.periodo_aplicacao }}</li>
+                                            </ul>
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingEight">
+                            <button class="accordion-button collapsed h4 mb-0" id="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapseEight" aria-expanded="false"
+                                aria-controls="flush-collapseEight">
+                                Bebês de 9 meses
+                            </button>
+                        </h2>
+                        <div id="flush-collapseEight" class="accordion-collapse collapse"
+                            aria-labelledby="flush-headingEight" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">
+                                <div class="container-fluid px-1 py-3">
+                                    <div class="row gap-4 mx-auto d-flex justify-content-around">
+                                        {% for item in lista_vacinas8 %}
+                                        <div class="card px-0 col-12 col-md-6 col-xl-3 shadow-sm" style="width: 20rem;">
+                                            <div class="card-header" style="background: #f57ea6;">
+                                                <b>{{ item.nome }}</b><a href="#"
+                                                    class="btn btn-outline-warning btn-sm float-end"
+                                                    data-bs-toggle="button" autocomplete="off">Imunizado</a>
+                                            </div>
+                                            <ul class="list-group list-group-flush">
+                                                <li class="list-group-item">
+                                                    <b>Origem:</b> {{
+                                                    item.origem }}
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <b>Benefício:</b> {{
+                                                    item.beneficio }}
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <b>Quando tomar:</b>
+                                                    {{
+                                                    item.periodo_aplicacao }}
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingNine">
+                            <button class="accordion-button collapsed h4 mb-0" id="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapseNine" aria-expanded="false"
+                                aria-controls="flush-collapseNine">
+                                Bebês de 12 meses
+                            </button>
+                        </h2>
+                        <div id="flush-collapseNine" class="accordion-collapse collapse"
+                            aria-labelledby="flush-headingNine" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">
+                                <div class="container-fluid px-1 py-3">
+                                    <div class="row gap-4 mx-auto d-flex justify-content-around">
+                                        {% for item in lista_vacinas9 %}
+                                        <div class="card px-0 col-12 col-md-6 col-xl-3 shadow-sm" style="width: 20rem;">
+                                            <div class="card-header" style="background: #f57ea6;">
+                                                <b>{{ item.nome }}</b><a href="#"
+                                                    class="btn btn-outline-warning btn-sm float-end"
+                                                    data-bs-toggle="button" autocomplete="off">Imunizado</a>
+                                            </div>
+                                            <ul class="list-group list-group-flush">
+                                                <li class="list-group-item">
+                                                    <b>Origem:</b>
+                                                    {{ item.origem }}
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <b>Benefício:</b> {{
+                                                    item.beneficio }}
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <b>Quando
+                                                        tomar:</b> {{
+                                                    item.periodo_aplicacao
+                                                    }}
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingTen">
+                            <button class="accordion-button collapsed h4 mb-0" id="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapseTen" aria-expanded="false"
+                                aria-controls="flush-collapseTen">
+                                Bebês de 15 meses
+                            </button>
+                        </h2>
+                        <div id="flush-collapseTen" class="accordion-collapse collapse"
+                            aria-labelledby="flush-headingTen" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">
+                                <div class="container-fluid px-1 py-3">
+                                    <div class="row gap-4 mx-auto d-flex justify-content-around">
+                                        {% for item in
+                                        lista_vacinas10 %}
+                                        <div class="card px-0 col-12 col-md-6 col-xl-3 shadow-sm" style="width: 20rem;">
+                                            <div class="card-header" style="background: #f57ea6;">
+                                                <b>{{ item.nome
+                                                    }}</b><a href="#" class="btn btn-outline-warning btn-sm float-end"
+                                                    data-bs-toggle="button" autocomplete="off">Imunizado</a>
+                                            </div>
+                                            <ul class="list-group list-group-flush">
+                                                <li class="list-group-item">
+                                                    <b>Origem:</b>
+                                                    {{
+                                                    item.origem
+                                                    }}
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <b>Benefício:</b>
+                                                    {{
+                                                    item.beneficio
+                                                    }}
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <b>Quando
+                                                        tomar:</b>
+                                                    {{
+                                                    item.periodo_aplicacao
+                                                    }}
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!--TODO: botão de salvar na session-->
+    </main>
+    {% endblock %}
+    
+    <footer class="mt-2">
+        <hr>
+        <div class="mb-2">
+            <a class="mx-1" href="https://www.linkedin.com/in/heitor-de-mac%C3%AAdo-sarmento-747773236/"><i
+                    class="bi bi-linkedin"></i></a>
+            <a class="mx-1" href="https://github.com/heitorMSarmento"><i class="bi bi-github"></i></a>
+            <a class="mx-1" href="mailto:heitor-macedo@hotmail.com"><i class="bi bi-envelope"></i></a>
+        </div>
+        <p>© 2022 HeitorMSarmento</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+</body>

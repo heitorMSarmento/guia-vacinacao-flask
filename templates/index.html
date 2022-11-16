@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <title>Guia de Vacinação</title>
+</head>
+
+<body>
+    <main class="container mx-auto">
+        <div class="row g-3 pt-3">
+            <h3 class="jumbbotron col-12 col-lg-6 display-3 pt-5">Saiba quais vacinas seu bebê deve tomar em cada mês de vida !</h3>
+            <figure class="col-12 col-lg-6">
+                <img id="fig-home" class="img-fluid shadow" src="../static/img/home-img.jpg" alt="Bebê sendo vacinado">
+            </figure>
+            <div class="col-12">
+                <p class="lead px-4">A Vacinação é um ato de cuidado com nossos filhos, logo no primeiro dia de vida
+                    do bebê, ele já
+                    deve ser imunizado para algumas doenças.</p>
+                <p class="lead px-4 mb-0">Visto o momento que estamos vivendo, com surgimento de novas doenças a cada ano
+                    que passa, a
+                    exemplo o Coronavirus e Varíola do Macaco, a vacinação nunca foi tão importante.</p>
+                </div>
+            <h5 class="display-6 col-12 mb-3">Obtenha agora o Guia de Vacinação do seu bebê, basta preencher as informações a
+                baixo:
+            </h5>
+        </div>
+        <form action="/guia" method="post" class="align-content-center">
+            <div class="container-fluid row g-3">
+                <div class="form-floating col-12 col-md-6">
+                    <input autocomplete="off" type="text" name="nomeBebe" class="form-control shadow-sm" placeholder="Nome Bebê"
+                        id="nomeBebe" required>
+                    <label for="nomeBebe">Qual o nome do bebê?</label>
+                </div>
+                <div class="form-floating col-12 col-md-6">
+                    <input type="date" name="dataNascBebe" class="form-control shadow-sm"
+                        placeholder="Data de Nascimento" id="dataNascBebe" required>
+                    <label for="dataNascBebe">Qual a data de nascimento do bebê?</label>
+
+                </div>
+                <div class="form-floating col-12 col-md-6">
+                    <input autocomplete="off" type="text" name="nomeMae" class="form-control shadow-sm" placeholder="Nome Mãe"
+                        id="nomeMae" required>
+                    <label for="nomeMae">Qual o nome da mamãe?</label>
+                </div>
+                <div class="form-floating col-12 col-md-6">
+                    <input autocomplete="off" type="email" class="form-control shadow-sm" name="email" placeholder="E-mail"
+                        id="email">
+                    <label for="email">... e qual seu e-mail?</label>
+                </div>
+                <div class="form-check mb-3 col-12">
+                    <input type="checkbox" class="form-check-input pl-3" name="termos" placeholder="Termos" id="termos">
+                    <label class="form-check-label" for="termos">Aceito receber por e-mail o Guia de Vacinação.</label>
+                </div>
+            </div>
+            <div class="d-grid gap-2 col-6 mx-auto">
+                <button type="submit" class="btn btn-primary mb-3">Criar Guia de Vacinação</button>
+            </div>
+        </form>
+    </main>
+    <hr>
+    <footer class="mt-2">
+        <div class="mb-2">
+            <a class="mx-1" href="https://www.linkedin.com/in/heitor-de-mac%C3%AAdo-sarmento-747773236/"><i
+                    class="bi bi-linkedin"></i></a>
+            <a class="mx-1" href="https://github.com/heitorMSarmento"><i class="bi bi-github"></i></a>
+            <a class="mx-1" href="mailto:heitor-macedo@hotmail.com"><i class="bi bi-envelope"></i></a>
+        </div>
+        <p>© 2022 HeitorMSarmento</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

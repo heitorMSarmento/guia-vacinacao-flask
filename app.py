@@ -131,3 +131,5 @@ def guia():
                                nomeMae=nomeMae,
                                idadeBebe=idadeBebe,
                                diasBebe=diasBebe)
+
+app.run()

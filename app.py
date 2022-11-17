@@ -8,7 +8,7 @@ from flask_mail import Mail, Message
 app = Flask(__name__)
 
 app.config["TEMPLATES_AUTO_RELOAD"] = True
-app.config["SQLALCHEMY_DATABASE_URI"] = "mysql+pymysql://root:qwerty.123@localhost/guia_vacinas"
+app.config["SQLALCHEMY_DATABASE_URI"] = "mysql+pymysql://heitorsarmento:qwerty.123@db4free.net/guia_vacinas"
 
 app.config['MAIL_SERVER'] = "smtp.gmail.com"
 app.config['MAIL_PORT'] = 465

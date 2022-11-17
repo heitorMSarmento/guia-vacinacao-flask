@@ -1,6 +1,6 @@
 # Guia de Vacinação
 
-![progress bar](https://geps.dev/progress/95)
+![progress bar](https://geps.dev/progress/99)
 
 Este projeto tem como finalidade aplicar alguns dos conhecimentos adquiridos no curso Introdutório a Computação CC50.
 
